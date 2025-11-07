@@ -1,52 +1,67 @@
 # Unsupervised Illumination-Guided Wavelet Networks for Night-Driving Image Enhancement
 
-Night-time driving scenes often suffer from low illumination, reduced visibility, noise interference, and weak contrast—significantly challenging perception systems in autonomous and assisted driving technologies. This project implements an **Unsupervised Illumination-Guided Wavelet Network (IGWNet)** designed to enhance night-driving images without requiring paired low/high-light training data.
+This repository contains the **proposed research work** for developing an **Unsupervised Illumination-Guided Wavelet Network (IGWNet)** to enhance night-driving images.  
+**Note:** The implementation is currently in the **proposal and design phase**, and the full model training and code execution are **not yet completed**. This repository currently documents the methodology, architecture, planned pipeline, literature foundation, and dataset usage, which will guide future implementation.
 
-The model leverages **wavelet-domain decomposition** and **illumination guidance priors** to restore structural details, amplify visibility, and suppress color distortion—all while maintaining natural brightness distribution.
-
----
-
-## 🎯 **Key Objectives**
-- Enhance visibility in low-light and night-time driving images.
-- Improve lane markings, vehicle edges, pedestrian visibility & road contours.
-- Avoid overexposure and maintain natural illumination balance.
-- Train enhancement model **without paired ground-truth** high-light images.
+Night-time driving images often suffer from low illumination, reduced contrast, and high noise, posing challenges for autonomous and driver-assistance vision systems. The proposed model aims to improve visibility and preserve structural details **without requiring paired low-light/high-light training images**, achieving natural and artifact-free enhancement.
 
 ---
 
-## 🧠 **Core Concept**
-The proposed network integrates:
-| Component | Purpose |
-|----------|---------|
-| **Wavelet Decomposition** | Separates texture and illumination components. |
-| **Illumination Guidance Module** | Learns exposure correction maps adaptively. |
-| **Unsupervised Loss Strategy** | Removes need for labeled enhancement pairs. |
-
-The network enhances contrast and illumination while preserving high-frequency structural details critical for driving environments.
+## 🎯 **Objective**
+- Design a wavelet and illumination-guided enhancement network for night-driving images.
+- Preserve textures, edges, and scene structure while improving brightness.
+- Develop an **unsupervised learning strategy** that does not rely on ground-truth enhanced images.
 
 ---
 
-## 🏗️ **Model Architecture Overview**
-- Wavelet transform layer to decompose image → (LL, LH, HL, HH)
-- Illumination estimation sub-network to guide exposure correction
-- Texture refinement branch to restore edges and contours
-- Multi-scale reconstruction decoder for final enhanced output
+## 🧠 **Proposed Method**
+| Component | Role |
+|----------|------|
+| **Wavelet Transform Module** | Separates image into frequency components for targeted enhancement |
+| **Illumination Guidance Module** | Learns exposure and lighting correction |
+| **Texture Refinement Block** | Restores high-frequency road and object structures |
+| **Unsupervised Reconstruction Losses** | Supports training without paired enhancement data |
+
+> *Implementation of the modules is ongoing and planned to be completed in upcoming development iterations.*
 
 ---
 
-## 🧪 **Dataset**
-This work can be trained and tested on publicly available night-driving datasets such as:
-- **LoLi-Phone Night Driving Dataset**
-- **ExDark**
-- **BDD100K (Night subset)**
-
-(Include dataset links in repository if allowed.)
+## 🏗️ **Current Repository Status**
+| Stage | Status |
+|-------|--------|
+| Literature Review | ✅ Completed |
+| Model Architecture Design | ✅ Defined |
+| Dataset Selection | ✅ Identified (ExDark, BDD100K Night subset, LoLi-Phone) |
+| Training Code | 🚧 **In Progress** |
+| Testing and Evaluation | ❌ Not Started |
+| Final Model & Results | ❌ Pending Implementation |
 
 ---
 
-## 📦 **Dependencies**
+## 📦 Planned Dependencies (for implementation)
 - Python 3.8+
-- PyTorch / TensorFlow (state developer decides)
+- PyTorch / TensorFlow
 - OpenCV
 - NumPy
 - Matplotlib
+
+---
+
+## 📝 **Future Work**
+- Implement wavelet decomposition layer for feature extraction.
+- Train model on selected night-driving datasets.
+- Evaluate performance using **PSNR**, **SSIM**, and **NIQE**.
+- Compare results with existing low-light enhancement methods.
+
+---
+
+## 🧭 **Applications (Post-Completion)**
+- Autonomous vehicle vision enhancement
+- ADAS (Advanced Driver Assistance Systems)
+- Night surveillance and road safety systems
+
+---
+
+## 📜 License
+This project is intended **for academic and research purposes only**.
+
